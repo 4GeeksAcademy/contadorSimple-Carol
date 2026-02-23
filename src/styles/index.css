@@ -10,17 +10,33 @@ body {
 
 .big-counter {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   background: #ac5656;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 8px;
   color: rgb(106, 32, 32);
   font-size: 40px;
   font-family: "Courier New", monospace;
+  gap: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .big-counter .icon {
-  margin-right: 30px;
+  margin-right: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.8;
+  }
 }
 
 .big-counter .digit {
@@ -30,5 +46,44 @@ body {
   border-radius: 4px;
   min-width: 35px;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.big-counter .digit:hover {
+  transform: scale(1.1);
+  background: #d88888;
+}
+
+/* Button Styles */
+.big-counter button {
+  background: #c97979;
+  color: rgb(106, 32, 32);
+  border: 2px solid rgb(106, 32, 32);
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.big-counter button:hover {
+  background: rgb(106, 32, 32);
+  color: #c97979;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.big-counter button:active {
+  transform: translateY(0);
+}
+
+.big-counter button.active {
+  background: rgb(106, 32, 32);
+  color: #c97979;
+  font-weight: bold;
+  border-color: #c97979;
 }
 
